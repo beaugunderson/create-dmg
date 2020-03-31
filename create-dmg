@@ -355,9 +355,9 @@ fi
 echo "Unmounting disk image..."
 for n in $(seq 1 5)
 do
-	hdiutil detach "$MOUNT_POINT" && break
+	hdiutil detach "${DEV_NAME}" && break
 	if [ "$n" = "5" ]; then
-		hdiutil detach -force "$MOUNT_POINT"
+		hdiutil detach -force "${DEV_NAME}"
 		exit $?
 	fi
 done
